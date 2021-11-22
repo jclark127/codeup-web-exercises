@@ -65,6 +65,8 @@ console.log (sampLength);
 sample += " Students.";
 
 console.log(sample);
+//Missed "Replace Students with Class" portion of exercise on initial push to git
+console.log(sample.replace("Students.", "Class."));
 
 console.log(sample.indexOf("c")); // Gives out of bounds index?
 
@@ -103,6 +105,15 @@ if (classOnTues && classFull === true){
     console.log("Cannot enroll in class");
 } else
 console.log("Can enroll in class");
+
+//missed this section in initial push to git
+var premiumMember = true;
+var offerExpired = false;
+var minItems = 2;
+
+var applyOffer = offerExpired && minItems >=2 || premiumMember && minItems >=2;
+
+console.log(applyOffer);
 
 //Exercise 3.4
 
