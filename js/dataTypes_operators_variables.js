@@ -111,7 +111,7 @@ var premiumMember = true;
 var offerExpired = false;
 var minItems = 2;
 
-var applyOffer = offerExpired && minItems >=2 || premiumMember && minItems >=2;
+var applyOffer = offerExpired && minItems > 2 || premiumMember && minItems >=2;
 
 console.log(applyOffer);
 
