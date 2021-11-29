@@ -54,11 +54,12 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * You should see a different message every time you refresh the page
  */
 analyzeColor(randomColor);
+
 /**
  * TODO:
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
-function analyzeColor(color){
+function analyzeColor(color) {
     switch (color) {
         case "red":
             return ("Red is the color of an apple");
@@ -85,6 +86,7 @@ function analyzeColor(color){
             return ("I do not know anything of that color.");
     }
 }
+
 /**
  * TODO:
  * Prompt the user for a color when the page loads, and pass the input from the
@@ -115,21 +117,22 @@ alert(analyzeColor(userColor));
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
-function calculateTotal (luckyNumber, totalAmnt){
-    if(luckyNumber === 1 ){
-        return totalAmnt -= totalAmnt *.10;
-    } else if (luckyNumber === 2){
+function calculateTotal(luckyNumber, totalAmnt) {
+    if (luckyNumber === 1) {
+        return totalAmnt -= totalAmnt * .10;
+    } else if (luckyNumber === 2) {
         return totalAmnt -= totalAmnt * .25;
-    } else if (luckyNumber === 3){
+    } else if (luckyNumber === 3) {
         return totalAmnt -= totalAmnt * .35;
-    } else if (luckyNumber === 4){
+    } else if (luckyNumber === 4) {
         return totalAmnt -= totalAmnt * .50;
-    } else if (luckyNumber === 5){
+    } else if (luckyNumber === 5) {
         return 0;
     } else {
         return totalAmnt;
     }
 }
+
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 5.
@@ -141,7 +144,7 @@ function calculateTotal (luckyNumber, totalAmnt){
 //Generate a random number between 0 and 6
 let luckyNumber = Math.floor(Math.random() * 6);
 let billTotal = prompt("Please enter bill total.");
-alert("Your lucky number was: " + luckyNumber + "\nYour price before discount was: $" + billTotal + "\n" + "$" +calculateTotal(luckyNumber, billTotal) + " is your new total.");
+alert("Your lucky number was: " + luckyNumber + "\nYour price before discount was: $" + billTotal + "\n" + "$" + calculateTotal(luckyNumber, billTotal) + " is your new total.");
 
 /**
  * TODO:
@@ -166,11 +169,10 @@ let number = prompt("Please enter a number.");
 alert(isEven(parseInt(number)));
 
 
-
 function isEven(number) {
     if (number % 2 === 0) {
         return number + " is even";
-    } else if (isNaN(number)){
+    } else if (isNaN(number)) {
         return "please enter valid input";
     } else {
         return number + " is odd";
