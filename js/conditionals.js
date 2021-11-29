@@ -166,7 +166,7 @@ alert("Your lucky number was: " + luckyNumber + "\nYour price before discount wa
  */
 confirm("Would you like to enter a number?");
 let number = prompt("Please enter a number.");
-alert(isEven(parseInt(number)));
+alert(isEven(parseInt(number)) + "\n" + plusHundy(parseInt(number)) + "\n" + isPositive(parseInt(number)));
 
 
 function isEven(number) {
@@ -176,5 +176,17 @@ function isEven(number) {
         return "please enter valid input";
     } else {
         return number + " is odd";
+    }
+}
+
+function plusHundy (number) {
+    return number + " plus 100 equals " + (number + 100);
+}
+
+function isPositive (number){
+    if (number > 0){
+        return number + " is positive."
+    } else {
+        return number + "is negative."
     }
 }
