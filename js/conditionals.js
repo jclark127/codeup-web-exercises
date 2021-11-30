@@ -165,15 +165,21 @@ alert("Your lucky number was: " + luckyNumber + "\nYour price before discount wa
  * HINT: The way we prompt for a value could be improved
  */
 confirm("Would you like to enter a number?");
-let number = prompt("Please enter a number.");
-alert(isEven(parseInt(number)) + "\n" + plusHundy(parseInt(number)) + "\n" + isPositive(parseInt(number)));
+let keepGoing = true;
+while (keepGoing) {
+    let number = prompt("Please enter a number.");
+    if (isNaN(parseInt(number))) {
+        alert("Please enter valid input.");
+    } else {
+        alert(isEven(parseInt(number)) + "\n" + plusHundy(parseInt(number)) + "\n" + isPositive(parseInt(number)));
+        keepGoing = false;
+    }
+}
 
 
 function isEven(number) {
     if (number % 2 === 0) {
         return number + " is even";
-    } else if (isNaN(number)) {
-        return "please enter valid input";
     } else {
         return number + " is odd";
     }
