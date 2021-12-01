@@ -21,7 +21,7 @@
  * Test your function by passing various string literals to it and
  * console.logging the function's return value
  */
-/**function analyzeColor(color) {
+function analyzeColor(color) {
     if (color === "blue") {
         return console.log("Blue is the color of the sky.");
     } else if (color === "red") {
@@ -39,7 +39,7 @@
     } else {
         return console.log("I dont know anything that is " + color);
     }
-}*/
+}
 
 // Don't change the next two lines!
 // These lines create two variables for you:
@@ -164,18 +164,25 @@ alert("Your lucky number was: " + luckyNumber + "\nYour price before discount wa
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
-confirm("Would you like to enter a number?");
-let keepGoing = true;
-while (keepGoing) {
-    let number = prompt("Please enter a number.");
-    if (isNaN(parseInt(number))) {
-        alert("Please enter valid input.");
-    } else {
-        alert(isEven(parseInt(number)) + "\n" + plusHundy(parseInt(number)) + "\n" + isPositive(parseInt(number)));
-        keepGoing = false;
-    }
+let startFunction = confirm("Would you like to enter a number?");
+if (startFunction === true){
+    inputValid();
+} else {
+    alert("Program exited");
 }
 
+function inputValid() {
+    let keepGoing = true;
+    while (keepGoing) {
+        let number = prompt("Please enter a number.");
+        if (isNaN(parseInt(number))) {
+            alert("Please enter valid input.");
+        } else {
+            alert(isEven(parseInt(number)) + "\n" + plusHundy(parseInt(number)) + "\n" + isPositive(parseInt(number)));
+            keepGoing = false;
+        }
+    }
+}
 
 function isEven(number) {
     if (number % 2 === 0) {

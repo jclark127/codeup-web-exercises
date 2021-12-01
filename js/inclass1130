@@ -1,0 +1,76 @@
+let scoreOne = 300;
+let scoreTwo = 289;
+let scoreThree = 292;
+
+function avgScore (scoreOne, scoreTwo, scoreThree){
+    return Math.floor((scoreOne + scoreTwo +scoreThree) / 3);
+}
+
+console.log(avgScore(scoreOne, scoreTwo, scoreThree));
+console.log();
+
+function bestScore(bestScore){
+    if (bestScore % 5 === 0|| bestScore % 3 === 0){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+console.log(bestScore(scoreOne));
+console.log();
+
+let str = "ThEbEsTbOwLiNgPlAcEever";
+
+function toLower (str){
+    return str.toLowerCase();
+}
+
+console.log(toLower(str));
+console.log();
+
+let score = 109;
+let name = "bowling is fun";
+let isBowlingFun = true;
+let players = ["Tom", "Jerry", "Garfield"];
+
+function varType (score, name, isBowlingFun, players) {
+    console.log(typeof score);
+    console.log(typeof name);
+    console.log(typeof isBowlingFun);
+    console.log(typeof players);
+}
+
+varType(score, name, isBowlingFun, players);
+console.log();
+
+function execAll (){
+    console.log(avgScore(scoreOne, scoreTwo, scoreThree));
+    console.log();
+    console.log(bestScore(scoreOne));
+    console.log();
+    console.log(toLower(str));
+    console.log();
+    varType(score, name, isBowlingFun, players);
+    console.log();
+}
+
+execAll();
+
+let str2 = "TheBestBowlingPlaceEver.";
+// let str3 = str2.split("");
+// console.log(str3);
+
+function addSpace(str2) {
+console.log(str2.replace(/([A-Z])/g, ' $1').trim());
+    // for (let i = 0; i < str3.length; i++) {
+    //     if (str3[i] === str3[i].toUpperCase()) {
+    //         str3.splice(i, 0," ");
+    //     }
+    // }
+    // return console.log(str3.join(""));
+}
+
+addSpace(str2);
+
+
