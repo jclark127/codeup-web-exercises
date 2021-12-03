@@ -1,10 +1,15 @@
-for (let i = 1; i <= 10; i++) {
-    console.log("7 x " + i + " = " + (i * 7));
+function showMultiplicationTable(x) {
+    for (let i = 1; i <= 10; i++) {
+        console.log("7 x " + i + " = " + (i * x));
+    }
 }
+let x = 7;
+showMultiplicationTable(x);
 console.log();
-let rand = "";
+
+let rand = 0;
 for (let i = 0; i <= 10; i++) {
-    rand = parseInt(Math.random() * (200 - 20) + 20);
+    rand = Math.floor(Math.random() * 180 + 20);
     console.log(isEven(rand));
 }
 
@@ -22,7 +27,7 @@ console.log();
 let str = "";
 for (let i = 1; i < 10; i++) {
     for (let j = 0; j < i; j++) {
-        str += i + "";
+        str += i;
     }
     str += "\n";
 }
