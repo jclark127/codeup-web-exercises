@@ -1,0 +1,40 @@
+.header {
+    color: purple; /* single line comment */
+    text-decoration: underline;
+}
+
+.main-header {
+    text-align: center;
+}
+
+body {
+    background-image: url("https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+    background-size: contain;
+    font-family: Helvetica;
+}
+
+ul {
+    list-style: lower-alpha;
+}
+
+table, th, tr, td {
+    border: solid 1px black;
+    border-collapse: collapse;
+}
+
+a:link {
+    color: blue;
+}
+
+a:visited{
+    color: purple;
+}
+
+a:hover {
+    color: red;
+}
+
+a:active{
+    color: green;
+}
+
