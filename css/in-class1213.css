@@ -1,0 +1,58 @@
+.parent{
+    height: 400px;
+    width: 400px;
+    border: solid black 5px;
+    margin: 10px;
+}
+
+div {
+    height: 100px;
+    width: 100px;
+}
+
+.div1 {
+    color: white;
+    background-color: blue;
+    border: solid 5px black;
+    text-align: center;
+    font-weight: bolder;
+    border-radius: 100px;
+
+}
+
+.div2 {
+    color: white;
+    background-color: orange;
+    border: solid 5px black;
+    text-align: center;
+    font-weight: bolder;
+    border-radius: 100px;
+    position: relative;
+    left: 100px;
+    bottom: 0px;
+
+}
+
+.div3 {
+    color: red;
+    background-color: red;
+    border: solid 5px black;
+    text-align: center;
+    font-weight: bolder;
+    border-radius: 100px;
+    position: relative;
+    top: 180px;
+}
+
+.div4 {
+    color: white;
+    background-color: green;
+    border: solid 5px black;
+    text-align: center;
+    font-weight: bolder;
+    border-radius: 100px;
+    position: relative;
+    left: px;
+    top: 70px;
+
+}
