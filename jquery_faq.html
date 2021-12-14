@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery_faq</title>
+</head>
+
+<style>
+    body{
+        font-family: Arial;
+    }
+
+    dt{
+        font-size: 1.25em;
+        font-weight: bold;
+    }
+
+    .invisible{
+        visibility: hidden;
+    }
+
+    .highlighted{
+        background-color: yellow;
+    }
+
+</style>
+<script src="js/jquery-3.6.0.js"></script>
+<body>
+<dl>
+    <dt id="1">Who is the director of the National Park Service?</dt>
+    <dd class="invisible">Shawn Benge, Deputy Director, Operations, is exercising the delegated authority of the Director of the National Park Service.</dd>
+    <br>
+    <dt id="2">What government agency oversees the National Park Service?</dt>
+    <dd class="invisible">The National Park Service is a bureau of the Department of the Interior. Directly overseeing its operation is the department's Assistant Secretary for Fish, Wildlife and Parks.</dd>
+    <br>
+    <dt id="3">How many employees are in the National Park Service?</dt>
+    <dd class="invisible">Permanent, temporary, and seasonal employees: Approximately 20,000</dd>
+    <br>
+    <dt id="4">How old is the National Park System?
+    </dt>
+    <dd class="invisible">The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916. Yellowstone National Park was established by an act signed by President Ulysses S. Grant on March 1, 1872, as the nation's first national park. </dd>
+    <br>
+    <dt id="5">What is the origin of the National Park Service arrowhead?
+    </dt>
+    <dd class="invisible">The arrowhead was authorized as the official National Park Service emblem by the Secretary of the Interior on July 20, 1951. The components of the arrowhead may have been inspired by key attributes of the National Park System, with the sequoia tree and bison representing vegetation and wildlife, the mountains and water representing scenic and recreational values, and the arrowhead itself representing historical and archeological values. </dd>
+    <br>
+    <dt id="6">How many areas are in the National Park System?
+    </dt>
+    <dd class="invisible">The system includes 423 areas covering more than 85 million acres in every state, the District of Columbia, American Samoa, Guam, Puerto Rico, and the Virgin Islands. These areas include national parks, monuments, battlefields, military parks, historical parks, historic sites, lakeshores, seashores, recreation areas, scenic rivers and trails, and the White House. </dd>
+    <br>
+    <dt id="7">What is the largest national park site?</dt>
+    <dd class="invisible">Wrangell-St. Elias National Park and Preserve, AK, at 13.2 million acres</dd>
+    <br>
+    <dt id="8">How many people visit the national parks?
+    </dt>
+    <dd class="invisible">Total recreation visitors to the national parks in 2019: 327,516,619.
+    </dd>
+    <br>
+    <dt id="9">Where can I find a park map?
+    </dt>
+    <dd class="invisible">You can view maps on specific park websites or find national park, National Park System, National Trails System, and other maps.
+    </dd>
+    <br>
+    <dt id="10">Can I bring my pet to a national park?
+    </dt>
+    <dd class="invisible">Some national parks welcome pets—in developed areas, on many trails and campgrounds, and in some lodging facilities. </dd>
+</dl>
+
+<button>Toggle answers</button>
+<script>
+    "use strict";
+
+
+    $(document).ready(function(){
+        $("button").click(function(){
+            $("dd").toggleClass("invisible");
+        });
+        $('dt').click(function() {
+            let clickedId= $(this).attr("id").toString();
+            $(`#${clickedId}`).toggleClass('highlighted');
+        });
+    });
+</script>
+</body>
+</html>

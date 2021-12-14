@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+<h1>Konami Code</h1>
+
+
+<script src="/js/jquery-3.6.0.js"></script>
+<style>
+    img {
+        animation: fly 25s linear infinite;
+        top: 0;
+        left: 0;
+        position: fixed;
+        z-index: 999;
+        pointer-events: none;
+    }
+    @keyframes fly {
+        0% {
+
+            transform: translate(-200%,110vh) rotateZ(0deg);
+        }
+
+        12.5% {
+            transform: translate(120vw,-120%) rotateZ(20deg);
+        }
+
+        25% {
+            transform: translate(-200%,50vh) scale(1.75) rotateZ(-20deg);
+        }
+
+        37.5% {
+            transform: translate(-200%,-120%) rotateZ(-40deg);
+        }
+
+        50% {
+            transform: translate(100vw,50vh) rotateZ(0deg);
+        }
+
+        62.5% {
+            transform: translate(20vw,100vh) rotateZ(20deg);
+        }
+        75% {
+            transform: translate(200%,100vh) rotateZ(20deg);
+        }
+        87.5% {
+            transform: translate(50vw,-200%) scale(1.75) rotateZ(20deg);
+        }
+
+        100% {
+            transform: translate(-200%,110vh) rotateZ(0deg);
+        }
+    }
+</style>
+<script>
+    "use strict";
+    $(document).ready(function() {
+        konami(function() {
+            let mgsAlert = new Audio("assets/mgs_alert_sound.mp3");
+            mgsAlert.play();
+            alert("You have added 30 lives");
+            let img = document.createElement("img");
+            img.src = "assets/metal-gear-alert.jpeg";
+            document.body.appendChild(img);
+        });
+    });
+
+    function konami(success) {
+        let input = "";
+        let pattern = "3838404037393739666513";
+        $(document).keyup(function(e) {
+            input += e.keyCode;
+            if (input.indexOf(pattern) !== -1) {
+                success();
+                input = "";
+                console.log(input);
+            }
+        });
+    }</script>
+</body>
+</html>
