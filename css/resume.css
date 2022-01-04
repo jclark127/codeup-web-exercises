@@ -75,3 +75,15 @@ body{
     font-weight: bolder;
 }
 
+.dateRange {
+    width: 25%;
+    height: 25%;
+    padding: 30px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.xpEntry{
+    display: flex;
+    height: 25%;
+}
