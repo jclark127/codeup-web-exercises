@@ -52,18 +52,31 @@
     </div>
     <h2>Build your own pizza!</h2>
     <nav>
-        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+        <ul class="nav nav-tabs" id="nav-tab" role="tablist">
+            <li class="active"><a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
                aria-controls="nav-home" aria-selected="true"><span class="badge badge-pill badge-dark">1</span> Size and
-                Crust</a>
-            <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                Crust</a></li>
+            <li><a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
                aria-controls="nav-profile" aria-selected="false"><span class="badge badge-pill badge-dark">2</span>
-                Cheese and Sauce</a>
-            <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+                Cheese and Sauce</a></li>
+            <li><a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
                aria-controls="nav-profile" aria-selected="false"><span class="badge badge-pill badge-dark">3</span>
-                Toppings</a>
-        </div>
+                Toppings</a></li>
+        </ul>
     </nav>
+<!--    <nav>-->
+<!--        <div class="nav nav-tabs" id="nav-tab" role="tablist">-->
+<!--            <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"-->
+<!--               aria-controls="nav-home" aria-selected="true"><span class="badge badge-pill badge-dark">1</span> Size and-->
+<!--                Crust</a>-->
+<!--            <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"-->
+<!--               aria-controls="nav-profile" aria-selected="false"><span class="badge badge-pill badge-dark">2</span>-->
+<!--                Cheese and Sauce</a>-->
+<!--            <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"-->
+<!--               aria-controls="nav-profile" aria-selected="false"><span class="badge badge-pill badge-dark">3</span>-->
+<!--                Toppings</a>-->
+<!--        </div>-->
+<!--    </nav>-->
     <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
             <div class="card">
@@ -125,12 +138,12 @@
                     </div>
                 </div>
                 <div class="card-footer text-muted">
-                    <a href="#" class="btn btn-primary float-right">Next Step ></a>
+                    <a href="#" class="btn btn-primary btnNext float-right">Next Step ></a>
                 </div>
             </div>
         </div>
         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="tab-pane fade show active" id="nav-home1" role="tabpanel" aria-labelledby="nav-home-tab">
                 <div class="card">
                     <div class="card-header bg-primary text-light">
                         Choose cheese and sauce.
@@ -177,8 +190,8 @@
                         </div>
                     </div>
                     <div class="card-footer text-muted">
-                        <a href="#" class="btn btn-primary float-left">< Previous Step</a>
-                        <a href="#" class="btn btn-primary float-right">Next Step ></a>
+                        <a href="#" class="btn btn-primary btnPrevious float-left">< Previous Step</a>
+                        <a href="#" class="btn btn-primary btnNext float-right">Next Step ></a>
                     </div>
                 </div>
             </div>
@@ -232,7 +245,6 @@
                             </li>
                         </ul>
                     </div>
-
                     <div class="card mt-3">
                         <div class="card-header">
                             Choose Non-Meats
@@ -276,29 +288,50 @@
                             </li>
                         </ul>
                         <div class="card-footer text-muted">
-                            <a href="#" class="btn btn-primary float-left">< Previous Step</a>
+                            <a href="#" class="btn btn-primary btnPrevious float-left">< Previous Step</a>
                             <a href="#" class="btn btn-primary float-right">Checkout <span class="material-icons">shopping_cart</span></a>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<!-- Optional JavaScript; choose one of the two! -->
 
+<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+<script>
+    $('body').on('click','.btnNext', function(){
+        let next = jQuery('.nav-tabs > .active').next('li');
+        if(next.length){
+            next.find('a').trigger('click');
+        }else{
+            jQuery('#nav-tab a:first').tab('show');
+        }
+    });
 
-            <!-- Optional JavaScript; choose one of the two! -->
+    $('body').on('click','.btnPrevious', function(){
+        let prev = jQuery('.nav-tabs > .active').prev('li')
+        if(prev.length){
+            prev.find('a').trigger('click');
+        }else{
+            jQuery('#nav-tab a:last').tab('show');
+        }
+    });
+</script>
 
-            <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-            <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-                    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-                    crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-                    integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
-                    crossorigin="anonymous"></script>
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+<!--
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+-->
 
-            <!-- Option 2: Separate Popper and Bootstrap JS -->
-            <!--
-            <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
-            -->
 </body>
 </html>
