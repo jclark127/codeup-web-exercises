@@ -1,5 +1,5 @@
 "use strict";
-window.onload = function() {
+$(document).ready(function() {
 
     // alert($("h1").html());
     //
@@ -25,4 +25,4 @@ window.onload = function() {
         }
 
     );
-}
+});

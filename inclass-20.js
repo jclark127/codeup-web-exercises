@@ -15,5 +15,4 @@ function checkCase (word){
         }
     }
 }
-
 checkCase(input);
