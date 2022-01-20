@@ -1,5 +1,5 @@
 "use strict";
-$(document).ready(function() {
+$(document).ready(function () {
 
     // alert($("h1").html());
     //
@@ -9,20 +9,19 @@ $(document).ready(function() {
     //
     // $("h1, p, li").css("background-color", "#FFFF00");
 
-    $(".codeup").click(function() {
+    $(".codeup").click(function () {
         $(".codeup").css("background-color", "#FF0000");
     });
 
-    $("p").dblclick(function (){
-       $("p").css("font-size", "18px");
+    $("p").dblclick(function () {
+        $("p").css("font-size", "18px");
     });
 
-    $(".li").hover(function(){
-       $(this).css("color", "#FF0000");
-    },
-        function (){
-        $(this).css("color", "#000000");
+    $(".li").hover(function () {
+            $(this).css("color", "#FF0000");
+        },
+        function () {
+            $(this).css("color", "#000000");
         }
-
     );
 });
