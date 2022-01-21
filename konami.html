@@ -54,6 +54,7 @@
         }
     }
 </style>
+
 <script>
     "use strict";
     $(document).ready(function() {
@@ -69,13 +70,17 @@
 
     function konami(success) {
         let input = "";
-        let pattern = "3838404037393739666513";
+        let kCode = "3838404037393739666513";
+        let jenny = "56545553514857"
         $(document).keyup(function(e) {
             input += e.keyCode;
-            if (input.indexOf(pattern) !== -1) {
+            console.log(input);
+            if (input.indexOf(kCode) !== -1) {
                 success();
                 input = "";
-                console.log(input);
+            }
+            else if (input.indexOf(jenny) !== -1){
+                window.location.replace("https://www.youtube.com/watch?v=6WTdTwcmxyo");
             }
         });
     }</script>

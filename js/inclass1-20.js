@@ -24,6 +24,6 @@ $("#sec2").css("background-color", "green");
 
 $(".highlight").css("background-color", "yellow");
 
-$("#floofers").click(function(){
-    $("#floofers").css({"height" : "1000", "width" : "1000px" });
+$("#floofers").click(function () {
+    $("#floofers").css({"height": "1000", "width": "1000px"});
 });
