@@ -118,7 +118,7 @@
             $("li").css("font-weight", "bold");
         });
         $("li").click(function (){
-            $("li:first-child").css("color", "blue");
+            $(this).parent().children().first().css("color", "blue");
         });
     });
 </script>
