@@ -23,8 +23,13 @@
         background-color: yellow;
     }
 
+    .picture{
+        height: 100px;
+        width: 100px;
+        border: solid 1px saddlebrown;
+    }
+
 </style>
-<script src="js/jquery-3.6.0.js"></script>
 <body>
 <dl>
     <dt id="1">Who is the director of the National Park Service?</dt>
@@ -65,19 +70,55 @@
     </dt>
     <dd class="invisible">Some national parks welcome pets—in developed areas, on many trails and campgrounds, and in some lodging facilities. </dd>
 </dl>
+<h3 id="national-parks-heading">National Parks</h3>
+<ul id="national-parks">
+    <li>Arches</li>
+    <li>Badlands</li>
+    <li>Carlsbad Caverns</li>
+    <li>Denali</li>
+    <li>Everglades</li>
+</ul>
+<h3>State Parks of Texas</h3>
+<ul id="state-parks-texas">
+    <li>Abilene</li>
+    <li>Big Bend</li>
+    <li>Choke Canyon</li>
+    <li>Davis Mountains</li>
+    <li>Enchanted Rock</li>
+</ul>
 
-<button>Toggle answers</button>
+<h3>State Parks of Texas</h3>
+<ul id="state-parks-texas2">
+    <li>Abilene</li>
+    <li>Big Bend</li>
+    <li>Choke Canyon</li>
+    <li>Davis Mountains</li>
+    <li>Enchanted Rock</li>
+</ul>
+
+<button class="btn2" id="btn">Click this thing</button>
+<button class="btn1">Toggle answers</button>
+<script src="js/jquery-3.6.0.js"></script>
 <script>
     "use strict";
 
 
     $(document).ready(function(){
-        $("button").click(function(){
+        $(".btn1").click(function(){
             $("dd").toggleClass("invisible");
         });
         $('dt').click(function() {
             let clickedId= $(this).attr("id").toString();
             $(`#${clickedId}`).toggleClass('highlighted');
+        });
+        $(".btn2").click(function (){
+            $("ul li:last-child").toggleClass('highlighted');
+        });
+        $("h3").click(function (){
+            $("li").css("font-weight", "bold");
+        });
+        $("li").click(function (){
+            $("li:first-child").css("color", "blue");
         });
     });
 </script>

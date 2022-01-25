@@ -8,7 +8,6 @@ function duplicates (num) {
     for (let i = 0; i < stringArr.length; i ++) {
         if (stringArr[i] === stringArr[i +1]) {
             let variable = stringArr[i];
-            numObj[]
         }
     }
     return numObj;
