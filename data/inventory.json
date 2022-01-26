@@ -38,5 +38,11 @@
     "tool"
   ],
   "price": 35
-}
+},{
+  "title": "Nails",
+  "quantity": 1000,
+  "categories": [
+    "tool"
+  ],
+  "price": 35}
 ]
