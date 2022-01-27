@@ -100,7 +100,9 @@
                     <li class="nav-item me-3 me-lg-0">
                         <a class="nav-link" href="https://github.com/mdbootstrap/mdb-ui-kit" rel="nofollow"
                            target="_blank">
-                            <i class="fab fa-github gry grey"></i>
+                            <i class="fas fa-bell gry grey"></i>
+                            <span class="badge rounded-pill badge-notification bg-danger">1</span>
+
                         </a>
                     </li>
                 </ul>
@@ -144,7 +146,7 @@
             </section>
         </div>
         <div class="text-center">
-            <button id="dark-mode" class="btn btn-light">Light Mode</button>
+            <button id="dark-mode" class="btn-sm btn-outline-light btn-rounded">Light Mode</button>
         </div>
     </main>
     <script type="text/javascript" src="bootstrap-5-blog-template-main/js/mdb.min.js"></script>
@@ -192,7 +194,7 @@
                 $(".gry").toggleClass("grey");
                 $(".drk").toggleClass("dark");
                 $("#nav").toggleClass("bg-light");
-                $(this).toggleClass("btn-dark");
+                $(this).toggleClass("btn-outline-dark");
                 $(".butt-dark").toggleClass("btn-primary").toggleClass("btn-dark");
                 $(this).text(function (i, text) {
                     return text === "Light Mode" ? "Dark Mode" : "Light Mode";
