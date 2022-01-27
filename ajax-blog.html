@@ -13,16 +13,16 @@
     <link rel="stylesheet" href="bootstrap-5-blog-template-main/css/mdb.min.css"/>
     <!-- Custom styles -->
     <style>
-        .dark{
+        .dark {
             background-color: #1F1B24;
             color: white;
         }
 
-        .black{
+        .black {
             background-color: black;
         }
 
-        .grey{
+        .grey {
             color: #bb86fc !important;
             background-color: #404040;
         }
@@ -144,7 +144,7 @@
             </section>
         </div>
         <div class="text-center">
-        <button id="dark-mode" class="btn btn-primary">Dark Mode</button>
+            <button id="dark-mode" class="btn btn-light">Light Mode</button>
         </div>
     </main>
     <script type="text/javascript" src="bootstrap-5-blog-template-main/js/mdb.min.js"></script>
@@ -170,7 +170,7 @@
                     item += '<div class="card-body">'
                     item += '<h5 class="card-title">' + value.title + '</h5>';
                     item += '<p class="card-text">' + value.content + '</p>';
-                    item += '<button class="btn btn-primary my-3">Read</button>';
+                    item += '<button class="btn btn-dark butt-dark my-3">Read</button>';
                     item += '<p class = "card-text font-weight-bold my-3">' + "Categories: " + value.categories + '</p>'
                     item += '<p class = "card-text font-weight-bold my-3">' + "Date posted: " + value.date + '</p>'
                     item += '</div>';
@@ -185,14 +185,18 @@
             $.get("data/blog.json", function (data) {
                 renderItems(data);
             });
-            $("#dark-mode").click(function (){
+            $("#dark-mode").click(function () {
                 $(".blk").toggleClass("black");
                 $(".gry").toggleClass("grey");
                 $(".drk").toggleClass("dark");
                 $("#nav").toggleClass("bg-light");
+                $(".butt-dark").toggleClass("btn-primary").toggleClass("btn-dark");
+                $(this).text(function (i, text) {
+                    return text === "Light Mode" ? "Dark Mode" : "Light Mode";
+                });
             })
         })();
     </script>
-
+</main>
 </body>
 </html>
