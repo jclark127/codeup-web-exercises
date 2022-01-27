@@ -6,7 +6,7 @@
       "greek"
     ],
     "date": "January 25, 2015",
-    "image": "https://source.unsplash.com/random/?city,night"
+    "image": "../assets/steven-lasry-qKEOC4v8dFY-unsplash.jpg"
   }, {
   "title": "The Second Post",
   "content": "Cupcake ipsum dolor sit amet gummies. Jujubes marzipan toffee apple pie pastry dragée jujubes marshmallow. Dragée chocolate gingerbread liquorice chocolate bar jujubes. Sweet chocolate bar jelly-o chocolate cake candy carrot cake cotton candy macaroon marzipan. Sweet roll biscuit sweet gummies topping sesame snaps tootsie roll sugar plum pie. Sweet muffin croissant chocolate cake chupa chups. Donut croissant gummies donut powder ice cream. Chupa chups halvah apple pie topping jelly beans donut candy canes donut. Bonbon cake gummi bears cheesecake tart topping powder liquorice gummi bears.",
@@ -17,7 +17,7 @@
     " sugar"
   ],
   "date": "February 14, 2015",
-  "image": "https://source.unsplash.com/random/?city,winter"
+  "image": "../assets/stefanos-nt-VET0azTM730-unsplash.jpg"
 },  {
   "title": "How to use Bootstrap templates if you suck at styling",
   "content": "Lorem ipsum dolor sit amet, Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -25,7 +25,7 @@
     "not cheating"
   ],
   "date": "January 25, 2015",
-  "image": "https://source.unsplash.com/random/?city,day"
+  "image": "../assets/joseph-chan-zC7vO76hEqM-unsplash.jpg"
 }, {
   "title": "A fourth blog.",
   "content": "Cupcake ipsum dolor sit amet gummies. Jujubes marzipan toffee apple pie pastry dragée jujubes marshmallow. Dragée chocolate gingerbread liquorice chocolate bar jujubes. Sweet chocolate bar jelly-o chocolate cake candy carrot cake cotton candy macaroon marzipan. Sweet roll biscuit sweet gummies topping sesame snaps tootsie roll sugar plum pie. Sweet muffin croissant chocolate cake chupa chups. Donut croissant gummies donut powder ice cream. Chupa chups halvah apple pie topping jelly beans donut candy canes donut. Bonbon cake gummi bears cheesecake tart topping powder liquorice gummi bears.",
@@ -36,6 +36,6 @@
     " Easy-to use"
   ],
   "date": "February 14, 2015",
-  "image": "https://source.unsplash.com/random/?city,fall"
+  "image": "../assets/joseph-chan-Ip2t2sHL8E4-unsplash.jpg"
 }
 ]
