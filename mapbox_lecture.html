@@ -32,19 +32,19 @@
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
-        zoom: 10,
+        zoom: 5,
         center: [-98.4916, 29.4252]
     });
 
     //create new marker
     var marker = new mapboxgl.Marker()
-        .setLngLat([-98.4916, 29.4260])
+        .setLngLat([-98.48478235397762, 29.452971397076368])
         .addTo(map);
 
     //popups
     var popup = new mapboxgl.Popup()
         .setLngLat([-98.489615, 29.426827])
-        .setHTML("<p>Codeup Rocks!</p>")
+        .setHTML("<p>Tycoon Flats</p>")
     // .addTo(map);
 
     marker.setPopup(popup);
@@ -52,11 +52,10 @@
     //using mapbox with functionality
 
 
-
-    geocode("600 Navarro St #350, San Antonio, TX 78205", mapboxgl.accessToken).then(function(result) {
+    geocode("San Antonio, TX", mapboxgl.accessToken).then(function(result) {
         console.log(result);
         map.setCenter(result);
-        map.setZoom(20);
+        map.setZoom(12);
     });
 
 

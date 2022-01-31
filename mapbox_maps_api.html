@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox_api_exercise</title>
+    <!-- Mapbox CSS -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
+    <!-- Custom CSS -->
+    <style>
+        #map {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Mapbox_api_exercise</h1>
+
+<div id='map'></div>
+<button id="button">Hide markers</button>
+<div>
+    <select name="zoomer" id="zoomer">
+        <option value="13">Default</option>
+        <option value="5">5</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+    </select>
+</div>
+
+<input id="search" placeholder="Enter your address" type="text" class="form-control">
+<button id="submit">Submit</button>
+
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script src="js/mapbox-accessToken.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+    mapboxgl.accessToken = getAccessToken();
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 5,
+        center: [-98.4916, 29.4252]
+    });
+
+    let restaurants = [{
+        name: "Tycoon Flats",
+        food: "Burger Spot",
+        feature: "Draft Beer",
+        lat: "-98.48478235397762",
+        long: "29.452971397076368"
+    }, {
+        name: "TBA",
+        food: "Cocktail Bar",
+        feature: "Cool vibe",
+        lat: "-98.48627251534079",
+        long: "29.45202586476785"
+    }, {
+        name: "Barbaro",
+        food: "Pizza",
+        feature: "Great pizza",
+        lat: "-98.49150818691757",
+        long: "29.45665955152314"
+    }
+    ];
+
+    restaurants.forEach(function (restaurant) {
+
+        var marker = new mapboxgl.Marker()
+
+        .setLngLat([restaurant.lat, restaurant.long])
+        .addTo(map);
+
+        var popup = new mapboxgl.Popup()
+            .setLngLat([-98.489615, 29.426827])
+            .setHTML("<h3>" + restaurant.name + "</h3>" +
+                "<p>" + restaurant.food + "</p>" +
+                "<p>" + restaurant.feature + "</p>"
+            )
+
+        marker.setPopup(popup);
+        $("button").click(function () {
+            marker.remove();
+            $(this).toggleClass("btn")
+        });
+
+    });
+
+
+    //popups
+
+
+    //using mapbox with functionality
+
+    geocode("Tobin Hill, TX", mapboxgl.accessToken).then(function (result) {
+        map.setCenter(result);
+        map.setZoom(13);
+    });
+    $("#zoomer").change(function () {
+        map.setZoom($("#zoomer option:selected").val());
+    });
+
+    $("#submit").click(function(){
+        geocode($("#search").val(),mapboxgl.accessToken).then(function (result) {
+            map.setCenter(result);
+            map.setZoom(13);
+        })
+    })
+
+</script>
+</body>
+</html>
