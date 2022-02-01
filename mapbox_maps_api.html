@@ -34,12 +34,13 @@
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 <script src="js/mapbox-geocoder-utils.js"></script>
 <script src="js/mapbox-accessToken.js"></script>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
     mapboxgl.accessToken = getAccessToken();
     var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v9',
+        style: 'mapbox://styles/mapbox/dark-v10',
         zoom: 5,
         center: [-98.4916, 29.4252]
     });
@@ -69,8 +70,8 @@
 
         var marker = new mapboxgl.Marker()
 
-        .setLngLat([restaurant.lat, restaurant.long])
-        .addTo(map);
+            .setLngLat([restaurant.lat, restaurant.long])
+            .addTo(map);
 
         var popup = new mapboxgl.Popup()
             .setLngLat([-98.489615, 29.426827])
@@ -81,8 +82,7 @@
 
         marker.setPopup(popup);
         $("button").click(function () {
-            marker.remove();
-            $(this).toggleClass("btn")
+            $("svg").toggle();
         });
 
     });
@@ -101,12 +101,21 @@
         map.setZoom($("#zoomer option:selected").val());
     });
 
-    $("#submit").click(function(){
-        geocode($("#search").val(),mapboxgl.accessToken).then(function (result) {
+    $("#submit").click(function () {
+        geocode($("#search").val(), mapboxgl.accessToken).then(function (result) {
             map.setCenter(result);
             map.setZoom(13);
         })
     })
+    $("#search").keypress(function (keyCode) {
+        console.log(keyCode);
+        if (keyCode.charCode === 13) {
+            geocode($("#search").val(), mapboxgl.accessToken).then(function (result) {
+                map.setCenter(result);
+                map.setZoom(13);
+            });
+        }
+    });
 
 </script>
 </body>
