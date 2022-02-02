@@ -1,12 +1,10 @@
 "use strict";
 
-
 $(document).ready(function () {
     let long = '-98.4916';
     let lat = '29.4252';
 
-    getWeather(long,lat);
-
+    getWeather(long, lat);
 
     mapboxgl.accessToken = getAccessToken();
     let map = new mapboxgl.Map({
@@ -15,38 +13,68 @@ $(document).ready(function () {
         zoom: 7,
         center: [-98.4916, 29.4252]
     });
-    map.addControl(
-        new MapboxGeocoder({
-            accessToken: mapboxgl.accessToken,
-            mapboxgl: mapboxgl
-        })
-    );
 
-    $("#submit").click(function () {
-        geocode($("#search").val(), mapboxgl.accessToken).then(function (result) {
-            map.setCenter(result);
-            map.setZoom(13);
-            getMarker(result);
-            long = result[0];
-            lat = result[1];
-            getWeather(long,lat);
-        })
+    let search = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl,
+        marker: false
     });
 
-    $("#search").keypress(function (keyCode) {
-        if (keyCode.charCode === 13) {
-            geocode($("#search").val(), mapboxgl.accessToken).then(function (result) {
-                map.setCenter(result);
-                map.setZoom(13);
-                getMarker(result)
-                long = result[0];
-                lat = result[1];
-                getWeather(long,lat);
+    getMarker([long, lat]);
+    map.addControl(search);
+    map.on("click", () => {
+        $(".mapboxgl-marker").remove();
+    });
+
+    // $("#submit").click(function () {
+    //     geocode($("#search").val(), mapboxgl.accessToken).then(function (result) {
+    //         map.setCenter(result);
+    //         map.setZoom(10);
+    //         getMarker(result);
+    //         long = result[0];
+    //         lat = result[1];
+    //         getWeather(long, lat);
+    //     })
+    // });
+    //
+    // $("#search").keypress(function (keyCode) {
+    //     if (keyCode.charCode === 13) {
+    //         geocode($(this).val(), mapboxgl.accessToken).then(function (result) {
+    //             map.setCenter(result);
+    //             map.setZoom(10);
+    //             getMarker(result);
+    //             long = result[0];
+    //             lat = result[1];
+    //             getWeather(long, lat);
+    //         });
+    //         $(this).val("");
+    //         reverseGeocode({lat: this.lat, lng: this.long}, mapboxgl.accessToken).then(function (result) {
+    //             console.log(result);
+    //         })
+    //     }
+    //
+    // });
+
+    map.on('load', () => {
+        search.on('result', (event) => {
+            getWeather(event.result.geometry.coordinates[0], event.result.geometry.coordinates[1]);
+            getMarker(event.result.geometry.coordinates);
+            $("#place").html(event.result.place_name)
+        });
+        map.on('dblclick', (event) => {
+            getMarker(event.lngLat);
+            getWeather(event.lngLat.lng, event.lngLat.lat);
+            reverseGeocode(event.lngLat, mapboxgl.accessToken).then(function (result) {
+                for (let i = 0; i < result.features.length; i++) {
+                    if (result.features[i].id.includes('place')) {
+                        $("#place").html(result.features[i].place_name);
+                    }
+                }
             });
-        }
+        });
     });
 
-    function getWeather (long,lat){
+    function getWeather(long, lat) {
         $.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&units=imperial&appid=${WEATHER_KEY}`).done(function (weatherObj) {
             $("#fiveDay > *").remove();
             let date = '';
@@ -76,18 +104,25 @@ $(document).ready(function () {
         });
     }
 
-    function getMarker(result){
+    function getMarker(result) {
         $(".mapboxgl-marker").remove();
         var marker = new mapboxgl.Marker({
             draggable: true
         })
             .setLngLat(result)
             .addTo(map);
-        marker.on("dragend", function (e){
+        marker.on("dragend", function (e) {
             long = e.target._lngLat.lng;
             lat = e.target._lngLat.lat;
-            getWeather(long,lat);
+            getWeather(long, lat);
+            reverseGeocode({lng: long, lat: lat}, mapboxgl.accessToken).then(function (result) {
+                for (let i = 0; i < result.features.length; i++) {
+                    if (result.features[i].id.includes('place')) {
+                        $("#place").html(result.features[i].place_name);
+                    }
+                }
+            });
         })
     }
-
 });
+
