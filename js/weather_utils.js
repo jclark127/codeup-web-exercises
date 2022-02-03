@@ -11,7 +11,7 @@ $(document).ready(function () {
         container: 'map',
         style: 'mapbox://styles/mapbox/dark-v10',
         zoom: 7,
-        center: [-98.4916, 29.4252]
+        center: [long, lat]
     });
 
     let search = new MapboxGeocoder({
@@ -25,35 +25,6 @@ $(document).ready(function () {
     map.on("click", () => {
         $(".mapboxgl-marker").remove();
     });
-
-    // $("#submit").click(function () {
-    //     geocode($("#search").val(), mapboxgl.accessToken).then(function (result) {
-    //         map.setCenter(result);
-    //         map.setZoom(10);
-    //         getMarker(result);
-    //         long = result[0];
-    //         lat = result[1];
-    //         getWeather(long, lat);
-    //     })
-    // });
-    //
-    // $("#search").keypress(function (keyCode) {
-    //     if (keyCode.charCode === 13) {
-    //         geocode($(this).val(), mapboxgl.accessToken).then(function (result) {
-    //             map.setCenter(result);
-    //             map.setZoom(10);
-    //             getMarker(result);
-    //             long = result[0];
-    //             lat = result[1];
-    //             getWeather(long, lat);
-    //         });
-    //         $(this).val("");
-    //         reverseGeocode({lat: this.lat, lng: this.long}, mapboxgl.accessToken).then(function (result) {
-    //             console.log(result);
-    //         })
-    //     }
-    //
-    // });
 
     map.on('load', () => {
         search.on('result', (event) => {
@@ -111,11 +82,11 @@ $(document).ready(function () {
         })
             .setLngLat(result)
             .addTo(map);
-        marker.on("dragend", function (e) {
+        marker.on("dragend", (e) => {
             long = e.target._lngLat.lng;
             lat = e.target._lngLat.lat;
             getWeather(long, lat);
-            reverseGeocode({lng: long, lat: lat}, mapboxgl.accessToken).then(function (result) {
+            reverseGeocode({lng: long, lat: lat}, mapboxgl.accessToken).then((result) => {
                 for (let i = 0; i < result.features.length; i++) {
                     if (result.features[i].id.includes('place')) {
                         $("#place").html(result.features[i].place_name);
@@ -124,5 +95,30 @@ $(document).ready(function () {
             });
         })
     }
+
+    // $("#submit").click(function () {
+    //     geocode($("#search").val(), mapboxgl.accessToken).then(function (result) {
+    //         map.setCenter(result);
+    //         map.setZoom(10);
+    //         getMarker(result);
+    //         long = result[0];
+    //         lat = result[1];
+    //         getWeather(long, lat);
+    //     })
+    // });
+    //
+    // $("#search").keypress(function (keyCode) {
+    //     if (keyCode.charCode === 13) {
+    //         geocode($(this).val(), mapboxgl.accessToken).then(function (result) {
+    //             map.setCenter(result);
+    //             map.setZoom(10);
+    //             getMarker(result);
+    //             long = result[0];
+    //             lat = result[1];
+    //             getWeather(long, lat);
+    //         });
+    //     }
+    //
+    // });
 });
 
