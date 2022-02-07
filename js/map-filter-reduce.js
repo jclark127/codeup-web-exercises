@@ -69,10 +69,10 @@ console.log(`Average user years experience: ${xpAvg}`);
 console.log();
 
 //TODO Use .reduce to get the longest email from the list of users.
-let counter =0;
+
 let longEmail = users.reduce((long, eMail) => {
     return long.length > eMail.email.length ? long : eMail.email;
-}, 0);
+});
 
 console.log(longEmail);
 console.log()
@@ -84,4 +84,15 @@ let userString = users.reduce((acc, userName) => {
     return acc === 0 ? userName.name : acc + ", " + userName.name;
 },0);
 
-console.log(`Your instructors are: ${userString}`)
+console.log(`Your instructors are: ${userString}.`);
+
+let languages = users.reduce((a,b) => {
+   b.languages.forEach(element =>{
+       if (!a.includes(element)){
+           a.push(element);
+       }
+   })
+    return a;
+},[])
+
+console.log(languages);
