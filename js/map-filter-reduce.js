@@ -93,6 +93,6 @@ let languages = users.reduce((a,b) => {
        }
    })
     return a;
-},[])
+},[]);
 
 console.log(languages);
