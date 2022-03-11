@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>AJAX Blog</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"/>
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"/>
+    <!-- MDB -->
+    <link rel="stylesheet" href="bootstrap-5-blog-template-main/css/mdb.min.css"/>
+    <!-- Custom styles -->
+    <style>
+        .dark {
+            background-color: #1F1B24;
+            color: white;
+        }
+
+        .black {
+            background-color: black;
+        }
+
+        .grey {
+            color: #bb86fc !important;
+            background-color: #404040;
+        }
+    </style>
+
+</head>
+<body class="dark drk">
+<header>
+    <!-- Intro settings -->
+    <style>
+        #intro {
+            /* Margin to fix overlapping fixed navbar */
+            margin-top: 58px;
+        }
+
+        @media (max-width: 991px) {
+            #intro {
+                /* Margin to fix overlapping fixed navbar */
+                margin-top: 45px;
+            }
+        }
+    </style>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top gry grey" id="nav">
+        <div class="container-fluid gry grey">
+            <!-- Navbar brand -->
+            <a class="navbar-brand " target="_blank" href="#!">
+                <img class="mx-4" src="assets/blogging.png"
+                     height="24" alt=""
+                     loading="lazy"
+                     style="margin-top: -3px;"/>
+            </a>
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
+                    aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarExample01">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gry grey">
+                    <li class="nav-item active gry grey">
+                        <a class="nav-link gry grey" aria-current="page" href="#intro">Home</a>
+                    </li>
+                    <li class="nav-item gry grey">
+                        <a class="nav-link gry grey" href=#!
+                           rel="nofollow"
+                           target="_blank">Blogs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link gry grey" href="#!" target="_blank">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link gry grey" href="#!" target="_blank">Contact</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav d-flex flex-row">
+                    <!-- Icons -->
+                    <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA"
+                           rel="nofollow"
+                           target="_blank">
+                            <i class="fab fa-youtube gry grey"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" href="https://www.facebook.com/mdbootstrap" rel="nofollow" target="_blank">
+                            <i class="fab fa-facebook-f gry grey"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" href="https://twitter.com/MDBootstrap" rel="nofollow" target="_blank">
+                            <i class="fab fa-twitter gry grey"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" href="https://github.com/mdbootstrap/mdb-ui-kit" rel="nofollow"
+                           target="_blank">
+                            <i class="fas fa-bell gry grey"></i>
+                            <span class="badge rounded-pill badge-notification bg-danger">1</span>
+
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar -->
+
+    <!-- Jumbotron -->
+    <div id="intro" class="p-5 text-center bg-light bg-image jumbotron">
+        <style>
+            .jumbotron {
+                background-image: url("https://images.unsplash.com/uploads/1413259835094dcdeb9d3/6e609595?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Y2l0eSxuaWdodHx8fHx8fDE2NDMxNTQzNDY&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080");
+                background-size: cover;
+                color: white;
+                text-shadow: -1px 1px 0 #000,
+                1px 1px 0 #000,
+                1px -1px 0 #000,
+                -1px -1px 0 #000;
+            }
+        </style>
+        <h1 class="mb-3 h2">Artsy Pictures Blog</h1>
+        <p class="mb-3">a blog about artsy pictures</p>
+    </div>
+    <!-- Jumbotron -->
+</header>
+<!--Main Navigation-->
+
+<!--Main layout-->
+<main class="my-5">
+    <!--Main layout-->
+    <main class="my-5">
+        <div class="container">
+            <section class="text-center">
+                <h4 class="mb-5"><strong>Latest posts</strong></h4>
+
+                <div id="posts" class="row">
+
+                </div>
+
+            </section>
+        </div>
+        <div class="text-center">
+            <button id="dark-mode" class="btn-sm btn-outline-light btn-rounded">Light Mode</button>
+        </div>
+    </main>
+    <script type="text/javascript" src="bootstrap-5-blog-template-main/js/mdb.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <!-- Custom scripts -->
+    <script>
+        (function () {
+
+            "use strict";
+
+            function renderItems(data) {
+                let item = '';
+                $.each(data, function (key, value) {
+                    item += '<div class= "col-xl-6 col-lg-6 col-md-6 mb-4" >';
+                    item += '<div class="card h-100 blk black">';
+                    item += '<div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">';
+                    item += '<img src="' + value.image + '" class="img-fluid" />';
+                    item += '<a href="#!">'
+                    item += '<div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>'
+                    item += '</a>';
+                    item += '</div>';
+                    item += '<div class="card-body">'
+                    item += '<h5 class="card-title">' + value.title + '</h5>';
+                    item += '<p class="card-text">' + value.content + '</p>';
+                    item += '<button class="btn btn-dark butt-dark my-3">Read</button>';
+                    item += '<p class = "card-text font-weight-bold my-3">' + "Categories: " + value.categories + '</p>'
+                    item += '<p class = "card-text font-weight-bold my-3">' + "Date posted: " + value.date + '</p>'
+                    item += '</div>';
+                    item += '</div>';
+                    item += '</div>';
+                    item += '</div>';
+                });
+                $('#posts').append(item);
+            }
+
+            // TODO: Create an AJAX GET request for the file under data/inventory.json
+
+            $.get("data/blog.json", function (data) {
+                renderItems(data);
+            });
+
+            $("#dark-mode").click(function () {
+                $(".blk").toggleClass("black");
+                $(".gry").toggleClass("grey");
+                $(".drk").toggleClass("dark");
+                $("#nav").toggleClass("bg-light");
+                $(this).toggleClass("btn-outline-dark");
+                $(".butt-dark").toggleClass("btn-primary").toggleClass("btn-dark");
+                $(this).text(function (i, text) {
+                    return text === "Light Mode" ? "Dark Mode" : "Light Mode";
+                });
+            })
+        })();
+    </script>
+</main>
+</body>
+</html>
